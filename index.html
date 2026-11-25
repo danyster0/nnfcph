@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101010" />
+  <meta name="description" content="Photographer digital business card." />
+  <title>Photographer | Digital Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#101010;--panel:#171717;--white:#f3f0e9;--muted:#a7a39b;--gold:#c5a46d;--line:rgba(243,240,233,.17)}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:"DM Sans",sans-serif}
+a{color:inherit;text-decoration:none}
+.site-header{height:84px;padding:0 7vw;display:flex;align-items:center;justify-content:space-between;position:absolute;z-index:5;top:0;left:0;width:100%;border-bottom:1px solid rgba(255,255,255,.13)}
+.brand{font-size:18px;letter-spacing:3px;font-weight:700}.brand span{font-weight:400}.brand i{color:var(--gold);font-style:normal}
+.main-nav{display:flex;gap:38px;color:#d0cdc7;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.main-nav a:hover,.site-footer a:hover{color:var(--gold)}
+.header-cta{font-size:12px;text-transform:uppercase;letter-spacing:1px;border:1px solid rgba(255,255,255,.5);padding:12px 18px}
+.header-cta span,.text-link span,.phone-link span{color:var(--gold);margin-left:10px}
+.menu-toggle{display:none;background:none;border:0;color:white;font-size:25px}
+.hero{height:min(850px,100vh);min-height:650px;position:relative;display:flex;align-items:center;padding:120px 12vw 80px;overflow:hidden}
+.hero-image{position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=2200&q=90") center 43%/cover;filter:brightness(.58)}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,8,.88),rgba(8,8,8,.42) 58%,rgba(8,8,8,.12)),linear-gradient(0deg,rgba(8,8,8,.55),transparent 35%)}
+.hero-content{position:relative;z-index:1;max-width:760px}
+.eyebrow,.small-label,.section-kicker,.gallery-note{font-size:10px;letter-spacing:2.2px;color:var(--gold);font-weight:600}
+.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:28px}.eyebrow span{width:30px;height:1px;background:var(--gold)}
+h1,h2{font-family:"Playfair Display",serif;font-weight:500;letter-spacing:-1.5px}
+.hero h1{font-size:clamp(52px,7vw,94px);line-height:1.06}
+h1 em,h2 em{color:var(--gold);font-weight:500}
+.hero-copy{color:#d2cec6;margin-top:25px;font-size:15px}
+.round-link{display:inline-flex;align-items:center;gap:28px;margin-top:45px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.55);font-size:10px;letter-spacing:2px}
+.round-link span{color:var(--gold);font-size:18px}
+.hero-index{position:absolute;right:7vw;bottom:54px;font-size:12px;letter-spacing:2px}.hero-index span{color:var(--gold);padding:0 8px}
+.vertical-note{position:absolute;right:7vw;top:45%;writing-mode:vertical-rl;font-size:9px;letter-spacing:2px;color:#d3d0c8}
+.section-wrap{padding:125px 12vw}
+.intro{background:#f0ede6;color:#171717}
+.section-kicker{color:#9d7b48}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:10%;margin-top:42px;align-items:end}
+.small-label{color:#8e7047;margin-bottom:22px}
+.intro h2,.section-heading h2{font-size:clamp(43px,5vw,68px);line-height:1.1}
+.intro h2 em{color:#a88755}
+.intro-text p{font-size:15px;line-height:1.9;color:#5e5a54;max-width:490px}
+.text-link{display:inline-block;margin-top:28px;font-size:10px;letter-spacing:1.8px;font-weight:700}
+.work-section{background:#121212}
+.section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:55px}
+.section-heading h2{margin-top:22px}.section-heading p{font-size:13px;line-height:1.8;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.gallery-item{position:relative;overflow:hidden;background:#222;min-height:320px}
+.gallery-item img{width:100%;height:100%;min-height:320px;object-fit:cover;display:block;filter:saturate(.78);transition:transform .7s,filter .7s}
+.gallery-item:hover img{transform:scale(1.045);filter:saturate(1)}
+.gallery-tall{grid-row:span 2}.gallery-tall img{min-height:670px}.gallery-wide{grid-column:span 2}
+.gallery-item figcaption{position:absolute;bottom:0;left:0;width:100%;padding:22px 24px;background:linear-gradient(transparent,rgba(0,0,0,.75));font-family:"Playfair Display",serif;font-size:23px}
+.gallery-item figcaption span{font:10px "DM Sans",sans-serif;color:var(--gold);margin-right:14px}
+.gallery-note{color:#777;margin-top:24px;font-size:9px}
+.contact-section{background:#1b1b1b;padding:115px 12vw;position:relative;overflow:hidden}
+.contact-inner{position:relative;z-index:1}
+.contact-section h2{font-size:clamp(50px,7vw,88px);line-height:1.04;margin:32px 0 22px}
+.contact-section h2 em{color:var(--gold)}
+.contact-section p{color:#aaa59c;font-size:14px;line-height:1.8}
+.phone-link{display:inline-block;margin-top:32px;font-family:"Playfair Display",serif;font-size:clamp(25px,4vw,40px);border-bottom:1px solid var(--line);padding-bottom:12px}
+.social-links{display:flex;gap:30px;flex-wrap:wrap;margin-top:45px}
+.social-links a{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#d6d1c7}
+.social-links a span{color:var(--gold);margin-left:7px}
+.contact-stamp{position:absolute;right:12vw;top:30%;font-family:"Playfair Display",serif;font-size:52px;line-height:.95;color:rgba(255,255,255,.045);transform:rotate(-9deg)}
+.site-footer{min-height:90px;padding:25px 7vw;display:flex;align-items:center;justify-content:space-between;color:#888;font-size:11px}
+.site-footer .brand{color:var(--white)}.site-footer>a:last-child{color:#c7b18d}
+.card-page{min-height:100svh;display:grid;place-items:center;padding:28px 18px;background:radial-gradient(ellipse at 50% 35%,#29251f 0%,#151515 48%,#0c0c0c 100%)}
+.digital-card{width:min(100%,420px);text-align:center;padding:42px 28px 30px;display:flex;flex-direction:column;align-items:center}
+.profile-ring{width:158px;height:158px;padding:6px;border:1px solid var(--gold);border-radius:50%;margin-bottom:25px;box-shadow:0 0 45px rgba(197,164,109,.12)}
+.profile-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:4px solid #171717}
+.card-overline{font-size:9px;letter-spacing:3px;color:var(--gold);margin-bottom:10px}
+.digital-card h1{font-size:42px;letter-spacing:0;margin-bottom:8px}
+.card-tagline{font-size:12px;color:#aaa49a;letter-spacing:.5px}
+.card-phone{margin-top:30px;color:var(--white);font-size:17px;letter-spacing:1px;padding:13px 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.card-actions{display:flex;justify-content:center;gap:17px;width:100%;margin-top:30px;flex-wrap:wrap}
+.card-actions a{width:58px;display:flex;flex-direction:column;align-items:center;gap:8px;color:#d8d3ca}
+.card-actions a>span{width:48px;height:48px;border:1px solid rgba(197,164,109,.55);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:21px;transition:.25s}
+.card-actions a:hover>span{background:var(--gold);color:#111}
+.card-actions small{font-size:9px;color:#aaa49a}
+.card-portfolio{margin-top:38px;border:1px solid rgba(197,164,109,.65);padding:14px 25px;font-size:9px;letter-spacing:2px;color:var(--white)}
+.card-portfolio span{color:var(--gold);margin-left:12px}
+.powered-note{font-size:8px;letter-spacing:2px;color:#716d65;margin-top:35px}
+@media(max-width:700px){
+.site-header{height:70px;padding:0 6vw}.main-nav{display:none;position:absolute;top:70px;left:0;width:100%;padding:24px 6vw;background:#141414;flex-direction:column;gap:22px}.main-nav.open{display:flex}
+.header-cta{display:none}.menu-toggle{display:block}
+.hero{min-height:680px;padding:110px 8vw 80px}.hero h1{font-size:clamp(48px,12vw,70px)}.vertical-note{right:5vw;font-size:8px}
+.section-wrap{padding:85px 8vw}.intro-grid{grid-template-columns:1fr;gap:28px}.section-heading{display:block}.section-heading p{margin-top:20px}
+.gallery{gap:12px}.gallery-item,.gallery-item img{min-height:230px}.gallery-tall img{min-height:472px}.gallery-item figcaption{font-size:17px;padding:14px}
+.contact-section{padding:85px 8vw}.contact-stamp{right:5vw;top:55%;font-size:35px}.social-links{gap:20px}
+.site-footer{padding:25px 6vw;gap:15px;flex-wrap:wrap}.site-footer p{order:3;width:100%}
+}
+
+  </style>
+</head>
+<body class="card-page">
+  <main class="digital-card">
+    <!-- Replace this image URL with the photographer's portrait -->
+    <div class="profile-ring">
+      <img src="img/photo_2026-11-26_00-41-33.jpg" alt="Photographer portrait">
+    </div>
+    <p class="card-overline">PHOTOGRAPHER</p>
+    <h1>Ahmed Sayed</h1>
+    <p class="card-tagline">Photographer & Visual Storyteller</p>
+
+    <a class="card-phone" href="tel:+201093204372">+20 109 320 4372</a>
+
+    <div class="card-actions">
+      <a href="tel:+201093204372" aria-label="Call"><span>⌕</span><small>Call</small></a>
+      <a href="https://wa.me/201093204372" target="_blank" rel="noopener" aria-label="WhatsApp"><span>◉</span><small>WhatsApp</small></a>
+      <!-- Replace # with the photographer's actual profile URLs -->
+      <a href="https://www.instagram.com/a7med_sayed61?hvrq=MWJwdWp4bG1kdndiYQ==" target="_blank" rel="noopener" aria-label="Instagram"><span>◎</span><small>Instagram</small></a>
+      <a href="https://www.facebook.com/share/1B7RAkTwVf/" target="_blank" rel="noopener" aria-label="Facebook"><span>f</span><small>Facebook</small></a>
+      <a href="https://www.tiktok.com/@ahmed.sayed66197?_r=1&_t=ZS-9BehdEv9QBx" target="_blank" rel="noopener" aria-label="TikTok"><span>♪</span><small>TikTok</small></a>
+    </div>
+
+    <p class="powered-note">TAP · CONNECT · KEEP IN TOUCH</p>
+  </main>
+</body>
+</html>
